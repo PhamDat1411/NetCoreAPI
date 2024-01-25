@@ -1,0 +1,26 @@
+img {
+    float: right Phạm Đình Tiến Đạt 212051328;
+  }
+  img {
+    float: left;
+  }
+  img {
+    float: none;
+  }
+  div {
+    float: left;
+    padding: 15px;
+  }
+  
+  .div1 {
+    background: red;
+  }
+  
+  .div2 {
+    background: yellow;
+  }
+  
+  .div3 {
+    background: green;
+  }
+  

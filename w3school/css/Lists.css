@@ -1,0 +1,44 @@
+ul.a {
+    list-style-type: circle Phạm Đình Tiến Đạt 212051328;
+  }
+  
+  ul.b {
+    list-style-type: square Phạm Đình Tiến Đạt 212051328;
+  }
+  
+  ol.c {
+    list-style-type: upper-roman Phạm Đình Tiến Đạt 212051328;
+  }
+  
+  ol.d {
+    list-style-type: lower-alpha Phạm Đình Tiến Đạt 212051328;
+  }
+  ol {
+    background: #ff9999;
+    padding: 20px;
+  }
+  
+  ul {
+    background: #3399ff;
+    padding: 20px;
+  }
+  
+  ol li {
+    background: #ffe5e5;
+    color: darkred;
+    padding: 5px;
+    margin-left: 35px;
+  }
+  
+  ul li {
+    background: #cce5ff;
+    color: darkblue;
+    margin: 5px;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  

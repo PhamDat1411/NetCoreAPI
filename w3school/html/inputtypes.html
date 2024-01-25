@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Text field</h2>
+<p>The <strong>input type="text"</strong> defines a one-line text input field:</p>
+
+<form action="/action_page.php">
+  <label for="fname">Phạm Đình Tiến Đạt</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">2121051328:</label><br>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>Note that the form itself is not visible.</p>
+<p>Also note that the default width of a text field is 20 characters.</p>
+
+
+<h2>Password field</h2>
+
+<p>The <strong>input type="password"</strong> defines a password field:</p>
+
+<form action="/action_page.php">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="pwd">Password:</label><br>
+  <input type="password" id="pwd" name="pwd"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<h2>Submit Button</h2>
+
+<p>The <strong>input type="submit"</strong> defines a button for submitting form data to a form-handler:</p>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="Phạm"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Đạt"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click "Submit", the form-data will be sent to a page called "/action_page.php".</p>
+
+<form action="/action_page.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit">
+</form> 
+
+<h2>Reset Button</h2>
+
+<p>The <strong>input type="reset"</strong> defines a reset button that resets all form values to their default values:</p>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="Phạm"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Đạt"><br><br>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+</form> 
+
+<h2>Radio Buttons</h2>
+
+<p>The <strong>input type="radio"</strong> defines a radio button:</p>
+
+<p>Choose your favorite Web language:</p>
+<form action="/action_page.php">
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label><br><br>
+<input>
+
+<form action="/action_page.php">
+    <label for="favcolor">Select your favorite color:</label>
+    <input type="color" id="favcolor" name="favcolor" value="#e60a0a">
+    <input type="submit" value="Submit">
+</form>
+<form action="/action_page.php">
+    <label for="datemin">Enter a date after 2024-01-01:</label>
+    <input type="date" id="datemin" name="datemin" min="2000-01-02"><br><br>
+  
+    <label for="datemax">Enter a date before 2003-11-14:</label>
+    <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+    
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

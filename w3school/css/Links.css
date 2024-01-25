@@ -1,0 +1,22 @@
+a {
+    color: hotpink Phạm Đình Tiến Đạt 212051328;
+  }
+  /* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
