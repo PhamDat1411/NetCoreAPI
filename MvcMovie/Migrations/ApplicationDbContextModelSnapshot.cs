@@ -16,6 +16,47 @@ namespace MvcMovie.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
 
+            modelBuilder.Entity("MvcMovie.Models.DaiLy", b =>
+                {
+                    b.Property<string>("HeThongPhanPhoi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DiaChi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DienThoai")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MaDaiLy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MaHTPP")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NguoiDaiDien")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TenDaiLy")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("HeThongPhanPhoi");
+
+                    b.ToTable("DaiLy");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Employee", b =>
+                {
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("EmployeeId");
+
+                    b.ToTable("Employee");
+                });
+
             modelBuilder.Entity("MvcMovie.Models.Person", b =>
                 {
                     b.Property<string>("PersonId")
@@ -27,6 +68,9 @@ namespace MvcMovie.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WorkAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("PersonId");

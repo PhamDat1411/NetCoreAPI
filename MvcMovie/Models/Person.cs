@@ -8,7 +8,10 @@ namespace MvcMovie.Models
     {
         [Key]
         public string PersonId { get; set;}
+        [Required]
         public string FullName { get; set;}
-        public string Address { get; set;}
+        [Required]
+        public string? Address { get; set;}
+        public string? WorkAt { get; set; }
     }
 }

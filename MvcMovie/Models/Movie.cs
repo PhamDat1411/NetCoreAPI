@@ -1,15 +1,14 @@
-using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.Net.Http.Headers;
 
-namespace MvcMovie.Models
+namespace DemoMvc.Models;
+public class Movie
 {
-    public class Movie
-    {
-    public int Id { get; set; }
-    public string? Title { get; set; }
+    public int Id { get ; set;}
+    public string? Title {get; set;}
     [DataType(DataType.Date)]
-    public DateTime ReleaseDate { get; set; }
-    public string? Genre { get; set; }
-    public decimal Price { get; set; }
-    }
+    public DateTime ReleaseDate {get; set;}
+    public string? Genre {get; set;}
+    public decimal price {get; set;}
 }
