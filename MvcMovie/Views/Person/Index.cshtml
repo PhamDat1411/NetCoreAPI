@@ -1,4 +1,6 @@
 @model IEnumerable<MvcMovie.Models.Person>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +10,19 @@
 
 <p>
     <a asp-action="Create">NEW NAME</a>
+    <a class="btn btn-primary" asp-action="Dowload">Dowload</a>
 </p>
+<div class="w3-row">
+    <div>
+        <a asp-action="Create" class="w3-border w3-border-blue w3-btn w3-right">NEW VERSION</a>
+    </div>
+    <div class="w3-col l2">
+        <form  asp-action="Index">
+            <input type="text" name="KeySearch" class="w3-input w3-border w3-border-green"/>
+            <input type="submit" value="Tìm Kiếm " class="w3-btn w3-border w3-round"/>
+        </form>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -51,3 +65,22 @@
 }
     </tbody>
 </table>
+@using (Html.BeginForm("Index", "Person", FormMethod.Get, new {id = "forml"}))
+{
+    <div class="row">
+        <div class="col-md-11">
+            @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page, pageSize = ViewBag.psize}), new X.PagedList.Mvc.Core.PagedListRenderOptions {LiElementClasses = new string[] {"page-item"}, PageClasses = new string[] {"page-link"}})
+        </div>
+        <div class="col-md-1">
+            @Html.DropDownList("pageSize",null,new {@class="form-select"})
+        </div>
+    </div>
+}
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        @("#pageSize").change(function(){
+            $("#forml").submit():
+        }):
+    });
+</script>

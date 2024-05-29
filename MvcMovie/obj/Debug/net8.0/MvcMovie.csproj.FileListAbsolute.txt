@@ -281,3 +281,6 @@ C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\EPPlus.dll
 C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\EPPlus.Interfaces.dll
 C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\EPPlus.System.Drawing.dll
 C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Net_Core_API\MvcMovie\obj\Debug\net8.0\MvcMovie.MvcApplicationPartsAssemblyInfo.cs
+C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\X.PagedList.dll
+C:\Net_Core_API\MvcMovie\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
 {
-    [Table("Persons")]
+    [Table("Person")]
     public class Person
     {
         [Key]

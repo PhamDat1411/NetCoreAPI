@@ -5,6 +5,10 @@ using MvcMovie.Data;
 using Microsoft.EntityFrameworkCore;
 using NetMVC.Models.Process;
 using System.Net.Http.Headers;
+using OfficeOpenXml;
+using System.ComponentModel;
+using X.PagedList;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MvcMovie.Controllers;
 public class PersonController : Controller
@@ -15,9 +19,26 @@ public class PersonController : Controller
     {
         _context = context;
     }
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? page, int? PageSize)
     {
-        var model = await _context.Person.ToListAsync();
+        ViewBag.PageSize = new List<SelectListItem>()
+        {
+            new SelectListItem { Value="3", Text= "3"},
+            new SelectListItem { Value="5", Text= "5"},
+            new SelectListItem { Value="10", Text= "10"},
+            new SelectListItem { Value="15", Text= "15"},
+            new SelectListItem { Value="25", Text= "25"},
+            new SelectListItem {Value= "50", Text= "50"},
+        };
+        int pagesize = (PageSize ?? 3);
+        ViewBag.psize = pagesize;
+        var  model = _context.Person.ToList().ToPagedList(page ?? 1, pagesize);
+        return View(model);
+    }
+       [HttpPost]
+    public async Task<IActionResult> Index(string KeySearch)
+    {
+        var model = await _context.Person.Where(x => x.PersonId.Contains(KeySearch)).ToListAsync();
         return View(model);
     }
     public IActionResult Create()
@@ -26,7 +47,7 @@ public class PersonController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("PersonId,Fullname,Addresss")] Person person)
+    public async Task<IActionResult> Create([Bind("PersonId,Fullname,Addresss,WorkAt")] Person person)
     {
         if (ModelState.IsValid)
         {
@@ -51,7 +72,7 @@ public class PersonController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(string id,[Bind("PersonId,Fullname,Address")]Person person)
+    public async Task<IActionResult> Edit(string id,[Bind("PersonId,Fullname,Address,WorkAt")]Person person)
     {
         if (id !=person.PersonId)
         {
@@ -119,7 +140,7 @@ public class PersonController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-   public async Task<IActionResult>Upload(IFormFile file)
+   public async Task <IActionResult> Upload(IFormFile file)
     {
         if (file!=null)
             {
@@ -148,6 +169,7 @@ public class PersonController : Controller
                             ps.PersonId = dt.Rows[i][0].ToString();
                             ps.FullName = dt.Rows[i][1].ToString();
                             ps.Address = dt.Rows[i][2].ToString();
+                            ps.WorkAt = dt.Rows[i][3].ToString();
                             //add object to contex
                             _context.Add(ps);
                         }
@@ -157,5 +179,26 @@ public class PersonController : Controller
                 }
             }
         return View();
+    }
+    public IActionResult Dowload()
+    {
+        //name the file when dowloading
+        var fileName = "Datdata" + ".xlsx";
+        using(ExcelPackage excelPackage = new ExcelPackage())
+        {
+            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+            //add some text to cell A1
+            worksheet.Cells["A1"].Value = "PersonId";
+            worksheet.Cells["B1"].Value = "FullName";
+            worksheet.Cells["C1"].Value = "Address";
+            worksheet.Cells["D1"].Value = "WorkAt";
+            //get all Person
+            var personList = _context.Person.ToList();
+            //fill data to worksheet
+            worksheet.Cells["A2"].LoadFromCollection(personList);
+            var stream = new MemoryStream(excelPackage.GetAsByteArray());
+            //dowload file
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+        }
     }
 }

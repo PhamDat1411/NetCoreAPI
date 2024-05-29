@@ -10,7 +10,7 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240508080525_Create_table_DaiLy")]
+    [Migration("20240515072857_Create_table_DaiLy")]
     partial class Create_table_DaiLy
     {
         /// <inheritdoc />
@@ -78,7 +78,7 @@ namespace MvcMovie.Migrations
 
                     b.HasKey("PersonId");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Person");
                 });
 #pragma warning restore 612, 618
         }
