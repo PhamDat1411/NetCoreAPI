@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DAT03.Models;
-
 namespace DAT03.Controllers;
 
 public class HomeController : Controller
